@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-xs-offset-3">
+            <form [formGroup]="toDoForm" (ngSubmit)="onSubmited()">
+                <div class="form-group">
+                    <label for=""> To do</label>
+                    <div class=" alert alert-danger" *ngIf="!toDoForm.get('todo').valid && toDoForm.get('todo').touched ">
+                        <span *ngIf="toDoForm.get('todo').errors['lengthValidatorTodo']"> max lengtn 10 </span>
+                        <span *ngIf="toDoForm.get('todo').errors['required']"> ce champ est obligatoire </span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="todo">
+
+                </div>
+                <div class="form-group">
+                    <label for=""> Date</label>
+                    <div class="alert alert-danger" *ngIf="!toDoForm.get('date').valid && toDoForm.get('date').touched ">
+                        <span *ngIf="toDoForm.get('date').errors['required']"> ce champ est obligatoire </span>
+                    </div>
+                    <input type="date" class="form-control" formControlName="date">
+
+                </div>
+                <div class="form-group ">
+                    <button type="submit " class="btn btn-primary" [disabled]="!toDoForm.valid"> Sauvgarder</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- <app-fetch-list-to-do></app-fetch-list-to-do> -->

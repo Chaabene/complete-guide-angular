@@ -1,0 +1,29 @@
+<router-outlet></router-outlet>
+<hr>
+<div class="row">
+    <div class="col-md-8 col-xs-offset-2">
+
+        <button (click)="newToDo()" class="btn btn-primary">nouveau</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">To do</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let elt of listToDo; let i=index" [appColorRowTable]=i>
+                    <th scope="row">{{i}}</th>
+                    <td>{{elt.todo}}</td>
+                    <td>{{elt.date}}</td>
+                    <td>
+                        <a> <span style="cursor: pointer;" class=" btn btn-primary glyphicon glyphicon-remove" (click)="onRemoveToDo(elt.id)"></span></a>
+                        <a> <span style="cursor: pointer; margin-left:10px" class=" btn btn-primary glyphicon-pencil" (click)="onUpdateToDo(elt.id,i)"></span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-md-6 col-xs-offset-3">
+        <div class=" alert alert-danger danger" *ngIf="error!=null">
+            {{error}}
+        </div>
+
+        <form (ngSubmit)="onSubmited()" #authForm="ngForm">
+            <div class=" alert alert-danger danger" *ngIf="!mail.valid && mail.touched || !password.valid && password.touched ">
+                <p *ngIf="!mail.valid && mail.touched">Email invalid</p>
+                <p *ngIf="!password.valid && password.touched">Mot de passe invalid</p>
+            </div>
+            <div class="form-group">
+                <label for="mail">mail</label>
+                <input type="email" name="mail" class="form-control" required email #mail="ngModel" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" name="password" class="form-control" ngModel required minlength="2" #password="ngModel">
+            </div>
+            <button class="btn btn-primary" [disabled]="!authForm.valid" style="margin-right: 10px;" type="submit" (click)="updateMode('signIn')"> Login</button>
+            <button class="btn btn-primary" [disabled]="!authForm.valid" type="submit" (click)="updateMode('signUp')"> Sign up</button>
+
+        </form>
+
+    </div>
+</div>
