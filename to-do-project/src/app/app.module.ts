@@ -12,6 +12,8 @@ import { ListToDoComponent } from './list-to-do/list-to-do.component';
 import { HeaderComponent } from './header/header.component';
 import { FetchListToDoComponent } from './list-to-do/fetch-list-to-do/fetch-list-to-do.component';
 import { ColorRowTableDirective } from './directive/color-row-table.directive';
+import { AlertComponent } from './dynamic-component/alert-component/alert.component';
+import { PlaceholderDirective } from './directive/placeholder.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { ColorRowTableDirective } from './directive/color-row-table.directive';
     ListToDoComponent,
     HeaderComponent,
     FetchListToDoComponent,
-    ColorRowTableDirective
+    ColorRowTableDirective,
+    PlaceholderDirective
 
   ],
   imports: [
@@ -37,6 +40,7 @@ import { ColorRowTableDirective } from './directive/color-row-table.directive';
     useClass:ErrorInterceptorService,
     multi:true
   }],
+  entryComponents:[ AlertComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

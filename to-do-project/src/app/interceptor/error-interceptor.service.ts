@@ -23,7 +23,7 @@ export class ErrorInterceptorService implements HttpInterceptor {
 
   private handleError(error: HttpErrorResponse) {
     console.log(error)
-    let errorMessage: string = error.error.error;
+    let errorMessage: string = error.error.error.message;
     switch (error.error.error.message) {
       case "EMAIL_NOT_FOUND": errorMessage = "email n'existe pas";
         break;

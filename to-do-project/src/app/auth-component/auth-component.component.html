@@ -1,8 +1,10 @@
 <div class="row">
     <div class="col-md-6 col-xs-offset-3">
-        <div class=" alert alert-danger danger" *ngIf="error!=null">
+        <!-- <div class=" alert alert-danger danger" *ngIf="error!=null">
             {{error}}
-        </div>
+        </div> -->
+        <!-- <div app-alert [message]="error" *ngIf="error!=null" (close)="onHandleError()"></div> -->
+        <ng-template appPlaceholder></ng-template>
 
         <form (ngSubmit)="onSubmited()" #authForm="ngForm">
             <div class=" alert alert-danger danger" *ngIf="!mail.valid && mail.touched || !password.valid && password.touched ">
