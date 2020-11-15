@@ -15,7 +15,7 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
 
   @ViewChild(PlaceholderDirective,{static:false}) alertPlace:PlaceholderDirective;
   @ViewChild('authForm', { static: false }) authForm: NgForm;
-  sub:Subscription;
+  sub:Subscription= new Subscription();
   constructor(private authService: AuthService,
     private router: Router,
     private componentFactoryResolver:ComponentFactoryResolver) { }
