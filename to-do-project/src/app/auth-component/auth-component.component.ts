@@ -5,6 +5,7 @@ import { Component, ComponentFactoryResolver, OnInit, ViewChild, OnDestroy } fro
 import { NgForm } from '@angular/forms';
 import { AlertComponent } from '../dynamic-component/alert-component/alert.component';
 import { PlaceholderDirective } from '../directive/placeholder.directive';
+import { subscribeOn } from 'rxjs/operators';
 
 @Component({
   selector: 'app-auth-component',
@@ -15,7 +16,7 @@ export class AuthComponentComponent implements OnInit,OnDestroy {
 
   @ViewChild(PlaceholderDirective,{static:false}) alertPlace:PlaceholderDirective;
   @ViewChild('authForm', { static: false }) authForm: NgForm;
-  sub:Subscription;
+  sub:Subscription= new Subscription();
   constructor(private authService: AuthService,
     private router: Router,
     private componentFactoryResolver:ComponentFactoryResolver) { }
